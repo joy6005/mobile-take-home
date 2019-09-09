@@ -65,7 +65,7 @@ public class HttpCharactersNetworkCalls extends AsyncTask<String, Integer, List<
         super.onPostExecute(episodeCharacters);
 
         Log.d("oho", "onPostExecute");
-        //recyclerView.setAdapter(new MyAdapter(episodes, MainActivity.this));
+        //recyclerView.setAdapter(new AllEpisodeAdapter(episodes, EpisodesListActivity.this));
 
         if (episodeCharacters != null) {
             callBackListener.onSuccess(episodeCharacters);
@@ -94,6 +94,7 @@ public class HttpCharactersNetworkCalls extends AsyncTask<String, Integer, List<
                 mEpisodeCharacter.setImage(jsonObject.getString("image"));
                 mEpisodeCharacter.setUrl(jsonObject.getString("url"));
                 mEpisodeCharacter.setCreated(jsonObject.getString("created"));
+
 
                 episodeCharacters.add(mEpisodeCharacter);
             }

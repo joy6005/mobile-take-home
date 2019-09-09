@@ -44,7 +44,7 @@ public class HttpEpisodesNetworkCalls extends AsyncTask<String, Integer, List<Ep
             if (lineRead != null || lineRead != "") {
                 try {
                     JSONObject obj = new JSONObject(lineRead);
-                    JSONArray episodeData = obj.getJSONArray("episodes");
+                    JSONArray episodeData = obj.getJSONArray("results");
                     int n = episodeData.length();
                     for (int i = 0; i < n; ++i) {
                         JSONObject entity = episodeData.getJSONObject(i);
@@ -88,8 +88,8 @@ public class HttpEpisodesNetworkCalls extends AsyncTask<String, Integer, List<Ep
     protected void onPostExecute(List<Episode> episodes) {
         super.onPostExecute(episodes);
 
-        Log.d("oho", "onPostExecute");
-        //recyclerView.setAdapter(new MyAdapter(episodes, MainActivity.this));
+        Log.d("episode", "-->> " + episodes.toString());
+        //recyclerView.setAdapter(new AllEpisodeAdapter(episodes, EpisodesListActivity.this));
 
         if (episodes != null) {
             episodesCallBackListener.onSuccess(episodes);

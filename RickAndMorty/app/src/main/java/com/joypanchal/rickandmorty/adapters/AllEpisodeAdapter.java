@@ -14,19 +14,19 @@ import com.joypanchal.rickandmorty.ui.CharacterListActivity;
 
 import java.util.List;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+public class AllEpisodeAdapter extends RecyclerView.Adapter<AllEpisodeAdapter.MyViewHolder> {
     public static List<Episode> episodes;
     public static Context ctx;
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MyAdapter(List<Episode> episodes, Context ctx) {
+    public AllEpisodeAdapter(List<Episode> episodes, Context ctx) {
         this.episodes = episodes;
         this.ctx = ctx;
     }
 
     // Create new views (invoked by the layout manager)
     @Override
-    public MyAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public AllEpisodeAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
@@ -63,8 +63,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         public MyViewHolder(View v) {
             super(v);
             txtEpisodeName = (TextView) v.findViewById(R.id.txtEpisodeName);
-            txtEpisode = (TextView) v.findViewById(R.id.txtEpisode);
-            txtEpisodeDate = (TextView) v.findViewById(R.id.txtEpisodeDate);
+            txtEpisode = (TextView) v.findViewById(R.id.txtNumber);
+            txtEpisodeDate = (TextView) v.findViewById(R.id.txtDate);
             v.setOnClickListener(this);
         }
 

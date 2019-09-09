@@ -40,6 +40,7 @@ public class EpisodeCharacter implements Parcelable {
     private String url;
     private String created;
 
+
     protected EpisodeCharacter(Parcel in) {
         this.id = ((Integer) in.readValue((Integer.class.getClassLoader())));
         this.name = ((String) in.readValue((String.class.getClassLoader())));
@@ -50,6 +51,7 @@ public class EpisodeCharacter implements Parcelable {
         this.image = ((String) in.readValue((String.class.getClassLoader())));
         this.url = ((String) in.readValue((String.class.getClassLoader())));
         this.created = ((String) in.readValue((String.class.getClassLoader())));
+
     }
 
     public EpisodeCharacter() {
@@ -126,6 +128,7 @@ public class EpisodeCharacter implements Parcelable {
     public void setCreated(String created) {
         this.created = created;
     }
+
 
     public int describeContents() {
         return 0;

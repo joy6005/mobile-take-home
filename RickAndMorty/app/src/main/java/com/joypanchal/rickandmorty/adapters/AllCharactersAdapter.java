@@ -2,6 +2,7 @@ package com.joypanchal.rickandmorty.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,7 +32,7 @@ public class AllCharactersAdapter extends RecyclerView.Adapter<AllCharactersAdap
         LayoutInflater inflater = LayoutInflater.from(context);
 
         // Inflate the custom layout
-        View contactView = inflater.inflate(R.layout.list_episode_row, parent, false);
+        View contactView = inflater.inflate(R.layout.list_episode_characters_row, parent, false);
 
         MyViewHolder vh = new MyViewHolder(contactView);
         return vh;
@@ -44,9 +45,18 @@ public class AllCharactersAdapter extends RecyclerView.Adapter<AllCharactersAdap
         // - replace the contents of the view with that element
         EpisodeCharacter episodeCharacter = allCharacters.get(position);
         holder.txtCharacterName.setText(episodeCharacter.getName());
-        holder.txtStatus.setText(episodeCharacter.getStatus());
-        holder.txtSpecies.setText(episodeCharacter.getSpecies());
+        holder.txtStatus.setText("Status : " + episodeCharacter.getStatus());
+        holder.txtSpecies.setText("Species : " + episodeCharacter.getSpecies());
         holder.episodeCharacter = episodeCharacter;
+
+        if (episodeCharacter.getStatus().equals("Dead")) {
+            holder.txtStatus.setTextColor(Color.RED);
+        } else if (episodeCharacter.getStatus().equals("Alive")) {
+            holder.txtStatus.setTextColor(Color.GREEN);
+        } else {
+            holder.txtStatus.setTextColor(Color.BLUE);
+        }
+
     }
 
     // Return the size of your dataset (invoked by the layout manager)
@@ -65,9 +75,9 @@ public class AllCharactersAdapter extends RecyclerView.Adapter<AllCharactersAdap
 
         public MyViewHolder(View v) {
             super(v);
-            txtCharacterName = (TextView) v.findViewById(R.id.txtEpisodeName);
-            txtStatus = (TextView) v.findViewById(R.id.txtEpisode);
-            txtSpecies = (TextView) v.findViewById(R.id.txtEpisodeDate);
+            txtCharacterName = (TextView) v.findViewById(R.id.txtName);
+            txtStatus = (TextView) v.findViewById(R.id.txtStatus);
+            txtSpecies = (TextView) v.findViewById(R.id.txtSpecies);
             v.setOnClickListener(this);
         }
 

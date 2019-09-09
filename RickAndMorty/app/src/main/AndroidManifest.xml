@@ -9,9 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".ui.MainActivity"
-            android:label="Rick and Morty Episodes List">
+        <activity android:name=".ui.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,11 +19,15 @@
 
         <activity
             android:name=".ui.CharacterListActivity"
-            android:parentActivityName=".ui.MainActivity" />
+            android:label="Character List" />
         <activity
             android:name=".ui.CharacterDetailsActivity"
-            android:parentActivityName=".ui.CharacterListActivity" />
-        <activity android:name=".ui.SplashActivity" />
+            android:label="Character Details" />
+        <activity
+            android:name=".ui.EpisodesListActivity"
+            android:label="Rick and Morty Episodes List" />
+
+
     </application>
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />

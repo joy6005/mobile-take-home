@@ -6,32 +6,30 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.joypanchal.rickandmorty.R;
-import com.joypanchal.rickandmorty.adapters.AllCharactersAdapter;
-import com.joypanchal.rickandmorty.callbacks.CharactersCallBackListener;
+import com.joypanchal.rickandmorty.adapters.AllEpisodeAdapter;
+import com.joypanchal.rickandmorty.callbacks.EpisodesCallBackListener;
 import com.joypanchal.rickandmorty.models.Episode;
-import com.joypanchal.rickandmorty.models.EpisodeCharacter;
-import com.joypanchal.rickandmorty.networks.HttpCharactersNetworkCalls;
+import com.joypanchal.rickandmorty.networks.HttpEpisodesNetworkCalls;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CharacterListActivity extends AppCompatActivity implements CharactersCallBackListener {
+public class EpisodesListActivity extends AppCompatActivity implements EpisodesCallBackListener {
 
     public List<Episode> episodes = new ArrayList<Episode>();
-    public String allCharacthers = "";
+    String allCharacters = "";
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        allCharacthers = getIntent().getExtras().getString("AllCharacters");
 
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
@@ -43,26 +41,23 @@ public class CharacterListActivity extends AppCompatActivity implements Characte
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        String my_url = "https://rickandmortyapi.com/api/character/" + allCharacthers;
+        String my_url = "https://rickandmortyapi.com/api/episode/";
 
         if (isNetworkAvailable(this)) {
-            new HttpCharactersNetworkCalls(this, my_url).execute();
+            HttpEpisodesNetworkCalls networkCalls = new HttpEpisodesNetworkCalls(this, my_url);
+            networkCalls.execute();
         } else
             Toast.makeText(getApplicationContext(), "Internet not available.Please connect to Internet.", Toast.LENGTH_LONG).show();
-
-
 
     }
 
     @Override
-    public void onSuccess(List<EpisodeCharacter> characterList) {
-        recyclerView.setAdapter(new AllCharactersAdapter(characterList, CharacterListActivity.this));
-        Log.d("data", "Success");
+    public void onSuccess(List<Episode> episodes) {
+        recyclerView.setAdapter(new AllEpisodeAdapter(episodes, EpisodesListActivity.this));
     }
 
     @Override
     public void onError(String error) {
-
         Toast.makeText(getApplicationContext(), "Something wrong..!! Please try again", Toast.LENGTH_LONG).show();
     }
 
