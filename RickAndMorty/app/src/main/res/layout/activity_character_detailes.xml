@@ -66,6 +66,12 @@
 
             </RelativeLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="@android:color/darker_gray" />
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -91,6 +97,12 @@
                     android:textSize="14sp" />
 
             </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="@android:color/darker_gray" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -118,6 +130,12 @@
 
             </RelativeLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="@android:color/darker_gray" />
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -143,6 +161,12 @@
                     android:textSize="14sp" />
 
             </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="@android:color/darker_gray" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -170,6 +194,13 @@
 
             </RelativeLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="@android:color/darker_gray" />
+
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -196,35 +227,7 @@
 
             </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="5dp"
-                android:background="@android:color/darker_gray" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="5dp"
-                android:background="@android:color/darker_gray" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="5dp"
-                android:background="@android:color/darker_gray" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="5dp"
-                android:background="@android:color/darker_gray" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="5dp"
-                android:background="@android:color/darker_gray" />
 
         </LinearLayout>
 
