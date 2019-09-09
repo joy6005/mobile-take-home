@@ -1,7 +1,6 @@
 package com.joypanchal.rickandmorty.networks;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 import com.joypanchal.rickandmorty.callbacks.EpisodesCallBackListener;
 import com.joypanchal.rickandmorty.models.Episode;
@@ -87,9 +86,6 @@ public class HttpEpisodesNetworkCalls extends AsyncTask<String, Integer, List<Ep
     @Override
     protected void onPostExecute(List<Episode> episodes) {
         super.onPostExecute(episodes);
-
-        Log.d("episode", "-->> " + episodes.toString());
-        //recyclerView.setAdapter(new AllEpisodeAdapter(episodes, EpisodesListActivity.this));
 
         if (episodes != null) {
             episodesCallBackListener.onSuccess(episodes);
